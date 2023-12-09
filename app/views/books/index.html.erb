@@ -1,9 +1,19 @@
 <% @books.each do |book| %>
+  
+   <%= link_to book_path(book.id) do %>
+  <% end %>
+  
+  
   <div>
-   
-    <p>投稿ユーザー画像：<%= image_tag 'no_image.jpg' %></p>
+    <p><%= image_tag 'no_image.jpg' %></p>
     <p>Title：<%= book.title %></p>
-    <p>Option：<%= book.body %></p>
-    <p>ユーザーネーム：<%= book.user.name %></p>
+    <p>Opinion：<%= book.body %></p>
+    <p>name：<%= book.user.name %></p>
   </div>
+  
+  <span>
+       <%= link_to book.title, book_path(book.id) %>
+  </span>
+  
+  
 <% end %>
