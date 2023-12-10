@@ -1,9 +1,22 @@
-<div>
 
+ <div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3>name <%= @user.name %></h3>
+  
+   <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+    <% end %>
+</div>
+
+
+
+<div>
+  
+ 
   <p>Title：<%= @book.title %></p>
   <p>Opinion：<%= @book.body %></p>
  
-  <p><%= image_tag 'no_image.jpg' %></p>
+  <p>投稿ユーザー画像：<%= image_tag @book.user.get_profile_image(100,100) %></p>
   <p>name：<%= @book.user.name %></p>
 
  <% if @book.user == current_user %>
@@ -11,4 +24,5 @@
   <% end %>
   
   </div>
+  
   
