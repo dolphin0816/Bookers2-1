@@ -1,18 +1,30 @@
+ <div>
+  <%= flash[:notice] %>
+</div>
+ 
  <div class="container"> 
  <div class="row"> 
   
    <div class="col-lg-3" style="background-color: white;">
   <div class="flexbox">  
  <div class="flex-item"> 
-  <h2>User info</h2>
-  <div>
+  <h1>User info</h1>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <h3>name <%= @user.name %></h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Introduction</th>
+    </tr>
+    <tr>
+      <td><%= @user.name %></td>
+      <td><%= @user.user_introduction %></td>
+    </tr>
+  </table>
   
    <% if @user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
     <% end %>
-</div>
+    
 </div>
 </div>
 

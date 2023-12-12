@@ -1,3 +1,6 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 
  <div class="container"> 
  <div class="row"> 
@@ -6,14 +9,21 @@
   <div class="flexbox">  
  <div class="flex-item"> 
   <h2>User info</h2>
-  <div>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <h3>name <%= @user.name %></h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Introduction</th>
+    </tr>
+    <tr>
+      <td><%= @user.name %></td>
+      <td><%= @user.user_introduction %></td>
+    </tr>
+  </table>
   
-   <% if @user == current_user %>
+    <% if @user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
     <% end %>
-</div>
 </div>
 </div>
 
@@ -62,7 +72,7 @@
   <p>Opinion：<%= @book.body %></p>
  
   <p>投稿ユーザー画像：<%= image_tag @book.user.get_profile_image(100,100) %></p>
-  <p>name：<%= @book.user.name %></p>
+  <p><%= link_to @book.user.name, user_path(@book.user) %></p>
 
  <% if @book.user == current_user %>
     <%= link_to "Destroy", book_path(@book), method: :delete %>
