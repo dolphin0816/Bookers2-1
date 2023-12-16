@@ -17,14 +17,19 @@
     </tr>
     <tr>
       <td><%= @user.name %></td>
-      <td><%= @user.user_introduction %></td>
+      <td><%= @user.introduction %></td>
     </tr>
   </table>
   
+
     <% if @user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+    
+    <%= link_to edit_user_path(@user), class: "btn btn-outline-secomdary btn-block" do %>
+  <i class="fa-solid fa-user-gear"></i>
+  <% end %>
+    
     <% end %>
-</div>
+   
 </div>
 
 
@@ -51,6 +56,7 @@
 
 </div>
 </div>
+</div>
  
  <div class="col-lg-1">
     </div>
@@ -65,21 +71,30 @@
 
   
 <h1>Book detail</h1>
-<div>
+
+<table class="table table-striped">
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= image_tag @book.user.get_profile_image(100,100) %><%= link_to @book.user.name, user_path(@book.user) %></td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+    </tr>
+  </table>
   
  
-  <p>Title：<%= @book.title %></p>
-  <p>Opinion：<%= @book.body %></p>
- 
-  <p>投稿ユーザー画像：<%= image_tag @book.user.get_profile_image(100,100) %></p>
-  <p><%= link_to @book.user.name, user_path(@book.user) %></p>
+  
 
  <% if @book.user == current_user %>
     <%= link_to "Destroy", book_path(@book), method: :delete %>
   <% end %>
   <%= link_to "Edit", edit_book_path(@book.id) %>
   
-  </div>
+    </div>
+    </div>
     </div>
   
   

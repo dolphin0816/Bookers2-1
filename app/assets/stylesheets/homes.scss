@@ -3,4 +3,30 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+.btn{
+  display: flex;
+  flex-direction: column;
+    
+   
+}
+.btn1{
+  padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.btn2{
+  padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    margin-top: 20px;
+}
 

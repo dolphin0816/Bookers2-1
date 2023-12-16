@@ -8,7 +8,21 @@
 
 <h2>User info</h2>
 
+
+
+
+
 <%= form_with model: @user do |f| %>
+
+<% if @user.errors.any? %>
+    <%= @user.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
 <div class = flex-item>
   <label for="inputName">Name</label>
 </div>
@@ -24,10 +38,10 @@
 </div>
   
  <div class = flex-item>
-  <label for="user_introduction">Introduction</label>
+  <label for="introduction">Introduction</label>
    </div>
   <div class = flex-item>
-  <%= f.text_field :user_introduction, autofocus: true, id:"user_introduction", placeholder:"Introduction"%>
+  <%= f.text_field :introduction, autofocus: true, id:"introduction", placeholder:"Introduction"%>
   </div>
   
   <%= f.submit "Update user" %>
