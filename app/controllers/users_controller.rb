@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    
     @user = User.find(params[:id])
   end
   
@@ -43,7 +42,7 @@ def is_matching_login_user
     unless user.id == current_user.id
       redirect_to books_path
     end
-    
-  end
-  
+end
+
+
   
